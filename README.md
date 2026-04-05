@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hotzarina Next.js
+
+A modern, high-performance website built with Next.js 14 and Tailwind CSS, optimized for static site generation.
+
+## Features
+
+- ⚡ Static Site Generation (SSG) for optimal performance
+- 🎨 Tailwind CSS for responsive design
+- 📱 Mobile-first responsive layout
+- 🔍 SEO optimized with Next.js built-ins
+- 🚀 Fast page loads with image optimization
+- ♿ Accessible components (WCAG compliant)
+- 🎯 TypeScript for type safety
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Generate a static site:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+The static files will be generated in the `out/` directory, ready for deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Linting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/                    # App Router pages
+│   ├── layout.tsx         # Root layout with header/footer
+│   ├── page.tsx           # Homepage
+│   ├── news/              # News section
+│   ├── guides/            # Guides section
+│   ├── listings/          # Listings section
+│   └── not-found.tsx      # 404 page
+├── components/            # Reusable React components
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   └── Navigation.tsx
+├── lib/                   # Utilities and helpers
+│   └── constants.ts
+└── styles/               # Global styles
+public/                   # Static assets (images, fonts, etc.)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Creating Pages
+
+Pages are created automatically based on file structure in `src/app/`:
+
+- `src/app/page.tsx` → `/`
+- `src/app/news/page.tsx` → `/news`
+- `src/app/guides/page.tsx` → `/guides`
+- `src/app/guides/[id]/page.tsx` → `/guides/:id` (dynamic route)
+
+## Deployment
+
+The static site can be deployed to any static hosting service:
+
+- Vercel (automatic)
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
+- Any CDN
+
+## Scaling to 150+ Pages
+
+For optimal build times and organization with 150+ pages:
+
+1. Use dynamic routes `[id]` for similar page templates
+2. Organize pages into logical sections (news, guides, listings, etc.)
+3. Use reusable components to maintain consistency
+4. Keep content data in JSON or database queries during build
+5. Monitor build times and optimize as needed
+
+## Styling
+
+- **Framework**: Tailwind CSS (utility-first CSS)
+- **Configuration**: `tailwind.config.ts`
+- **Global Styles**: `src/app/globals.css`
+
+## Contributing
+
+1. Create a branch for your feature
+2. Make your changes
+3. Run `npm run lint` to ensure code quality
+4. Submit a pull request
+
+## License
+
+MIT
+
+## Support
+
+For issues and questions, please open an issue in the repository.
