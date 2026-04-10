@@ -1,65 +1,92 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Welcome to Hotzarina – your destination for the latest news, in-depth guides, and curated listings.",
+  alternates: {
+    canonical: "https://hotzarina.in",
+  },
+  openGraph: {
+    url: "https://hotzarina.in",
+    title: "Hotzarina – Latest News, Guides & Listings",
+    description:
+      "Welcome to Hotzarina – your destination for the latest news, in-depth guides, and curated listings.",
+  },
+};
+
+const categories = [
+  {
+    title: "News",
+    description: "Stay updated with the latest stories and breaking headlines.",
+    href: "/news",
+    icon: "📰",
+  },
+  {
+    title: "Guides",
+    description: "In-depth guides to help you learn and explore new topics.",
+    href: "/guides",
+    icon: "📖",
+  },
+  {
+    title: "Listings",
+    description: "Browse curated listings across top categories.",
+    href: "/listings",
+    icon: "📋",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-white dark:bg-zinc-950">
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-rose-50 to-white dark:from-zinc-900 dark:to-zinc-950 px-6 py-24 text-center">
+        <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
+          Welcome to <span className="text-rose-600">Hotzarina</span>
+        </h1>
+        <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
+          Your destination for the latest news, in-depth guides, and curated listings.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Link
+            href="/news"
+            className="rounded-full bg-rose-600 px-6 py-3 text-sm font-semibold text-white hover:bg-rose-700 transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Explore News
+          </Link>
+          <Link
+            href="/guides"
+            className="rounded-full border border-zinc-300 dark:border-zinc-700 px-6 py-3 text-sm font-semibold text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
           >
-            Documentation
-          </a>
+            Browse Guides
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Categories */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <h2 className="text-2xl font-semibold text-zinc-900 dark:text-white mb-8 text-center">
+          What&apos;s on Hotzarina
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {categories.map((cat) => (
+            <Link
+              key={cat.title}
+              href={cat.href}
+              className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 hover:border-rose-400 dark:hover:border-rose-500 hover:shadow-md transition-all"
+            >
+              <span className="text-3xl">{cat.icon}</span>
+              <h3 className="mt-3 text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-rose-600 transition-colors">
+                {cat.title}
+              </h3>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                {cat.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
