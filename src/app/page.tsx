@@ -83,7 +83,7 @@ export default function Home() {
           closes: "23:59",
         },
         priceRange: "₹₹₹",
-        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "1250", bestRating: "5" },
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: 1250, bestRating: "5" },
         sameAs: ["https://wa.me/919038976363", "https://t.me/hotzarinain"],
       },
       {
@@ -117,7 +117,7 @@ export default function Home() {
       <link rel="preload" href="/images/escorts-in-mumbai-banner.webp" as="image" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero Section */}
-      <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.7),rgba(128,0,128,0.7)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }} aria-label="Premium Escorts in Mumbai">
+      <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.7),rgba(128,0,128,0.7)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }} aria-label="Premium Escorts in Mumbai" itemScope itemType="https://schema.org/LocalBusiness">
         <div className="container">
           <div className="hero-content">
             <h1>Escorts in Mumbai - Premium Call Girls Service Available 24/7</h1>
@@ -293,7 +293,7 @@ export default function Home() {
             <h3>How to Book Your Perfect Companion — 3 Simple Steps</h3>
             <p>Booking with Zarina takes less than 15 minutes. <strong>Step 1</strong>: Browse our verified escort profiles and select a companion that matches your preferences. <strong>Step 2</strong>: Contact us via phone (<strong>+91 90389 76363</strong>) or WhatsApp to confirm availability, discuss your requirements, and agree on the details. <strong>Step 3</strong>: Receive instant confirmation and your escort arrives at your location on time, every time. Our customer support team is available 24/7 to answer questions and accommodate special requests. For same-day or urgent bookings, call us directly for the fastest response.</p>
             <h3>Book Your Perfect Companion Today</h3>
-            <p>Contact us now at <strong>+91 90389 76363</strong> to explore our exclusive collection of <strong>Mumbai call girls</strong> and book your perfect companion. Same-day availability, instant confirmation, and unforgettable experiences await.</p>
+            <p>Contact us now at <strong>+91 90389 76363</strong> to explore our exclusive collection of <strong>Mumbai call girls</strong> and book your perfect companion. Same-day availability, instant confirmation, and unforgettable experiences await. Ready to book? <Link href="/contact" style={{ color: '#800080', fontWeight: 600, textDecoration: 'none', borderBottom: '2px solid #800080' }}>Fill our booking form</Link> or call us directly for the fastest response.</p>
           </div>
         </div>
       </section>
