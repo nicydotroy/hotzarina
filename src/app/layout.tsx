@@ -15,14 +15,26 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hotzarina.in"),
   title: {
-    default: "Hotzarina – Latest News, Guides & Listings",
-    template: "%s | Hotzarina",
+    default: "Escorts in Mumbai | Premium Call Girls Service 24/7 | Zarina",
+    template: "%s | Zarina Escorts Mumbai",
   },
   description:
-    "Hotzarina brings you the latest news, in-depth guides, and curated listings across top categories.",
-  keywords: ["hotzarina", "news", "guides", "listings"],
-  authors: [{ name: "Hotzarina" }],
-  creator: "Hotzarina",
+    "Mumbai's #1 escort service — 100% verified call girls available 24/7. VIP escorts, Russian models, independent companions across Andheri, Bandra, Juhu & Powai. Safe, discreet booking. Call +91 90389 76363.",
+  keywords: [
+    "escorts in mumbai",
+    "mumbai escorts",
+    "call girls in mumbai",
+    "vip escorts mumbai",
+    "independent escorts mumbai",
+    "russian escorts mumbai",
+    "model escorts mumbai",
+    "high profile escorts mumbai",
+    "female escorts mumbai",
+    "escort service mumbai",
+  ],
+  authors: [{ name: "Zarina Escorts Mumbai" }],
+  creator: "Zarina Escorts Mumbai",
+  publisher: "Zarina Escorts Mumbai",
   robots: {
     index: true,
     follow: true,
@@ -36,32 +48,38 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: "https://hotzarina.in",
-    siteName: "Hotzarina",
-    title: "Hotzarina – Latest News, Guides & Listings",
+    siteName: "Zarina Escorts Mumbai",
+    title: "Escorts in Mumbai | Premium Call Girls Service 24/7 | Zarina",
     description:
-      "Hotzarina brings you the latest news, in-depth guides, and curated listings across top categories.",
+      "Mumbai's #1 escort service — 100% verified call girls available 24/7. Safe, discreet booking.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/escorts-in-mumbai-banner.webp",
         width: 1200,
         height: 630,
-        alt: "Hotzarina",
+        alt: "Escorts in Mumbai – Premium Call Girls Service | Zarina",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hotzarina – Latest News, Guides & Listings",
+    title: "Escorts in Mumbai | Premium Call Girls Service 24/7 | Zarina",
     description:
-      "Hotzarina brings you the latest news, in-depth guides, and curated listings across top categories.",
-    images: ["/og-image.png"],
+      "Mumbai's #1 escort service — 100% verified call girls available 24/7. Safe, discreet booking.",
+    images: ["/images/escorts-in-mumbai-banner.webp"],
     site: "@hotzarina",
     creator: "@hotzarina",
   },
   alternates: {
     canonical: "https://hotzarina.in",
+  },
+  other: {
+    "geo.region": "IN-MH",
+    "geo.placename": "Mumbai, Maharashtra",
+    "geo.position": "19.0760;72.8777",
+    ICBM: "19.0760, 72.8777",
   },
 };
 
@@ -71,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body className={poppins.variable}>
         <Header />
         {children}

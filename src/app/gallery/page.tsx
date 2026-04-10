@@ -45,8 +45,44 @@ const galleryEscorts = [
 
 export default function GalleryPage() {
   const faqs = defaultFAQs('Mumbai');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ImageGallery",
+        "@id": "https://hotzarina.in/gallery",
+        name: "Mumbai Escorts Gallery - Real Photos | Zarina",
+        url: "https://hotzarina.in/gallery",
+        description: "Browse real verified photos of Mumbai escorts. 100% genuine profiles of call girls in Mumbai.",
+        image: galleryEscorts.map((e) => ({
+          "@type": "ImageObject",
+          contentUrl: `https://hotzarina.in/images/name/${e.slug}.webp`,
+          name: `${e.name} - ${e.type} in ${e.location}`,
+          description: `${e.name}, ${e.age} years - ${e.type} escort in ${e.location}. Rating: ${e.rating}/5`,
+        })),
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+            { "@type": "ListItem", position: 2, name: "Gallery", item: "https://hotzarina.in/gallery" },
+          ],
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.8),rgba(128,0,128,0.8)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }}>
         <div className="container">

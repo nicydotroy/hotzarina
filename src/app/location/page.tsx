@@ -21,8 +21,48 @@ export const metadata: Metadata = {
 
 export default function LocationPage() {
   const faqs = defaultFAQs('Mumbai');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://hotzarina.in/location",
+        name: "Escorts in All Mumbai Locations | Call Girls Near You",
+        url: "https://hotzarina.in/location",
+        description: "Find verified escorts near you across all Mumbai and India locations. 125+ areas covered.",
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+            { "@type": "ListItem", position: 2, name: "All Locations", item: "https://hotzarina.in/location" },
+          ],
+        },
+      },
+      {
+        "@type": "ItemList",
+        name: "Escort Locations in Mumbai & India",
+        itemListElement: locations.map((loc, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: `Escorts in ${loc.name}`,
+          url: `https://hotzarina.in/escorts-in-${loc.slug}`,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.8),rgba(128,0,128,0.8)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }}>
         <div className="container">

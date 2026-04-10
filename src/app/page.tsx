@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Escorts in Mumbai | Premium Call Girls Service 24/7 | Zarina",
   description:
     "Top Escorts in Mumbai - 100% Verified Call Girls Available 24/7. VIP Escorts, Russian Models, Independent Companions across Andheri, Bandra, Juhu, Powai. Safe, Discreet Booking. Call Now +91 90389 76363",
-  keywords: ["escorts in mumbai", "mumbai escorts", "call girls in mumbai", "vip escorts mumbai", "independent escorts mumbai"],
+  keywords: ["escorts in mumbai", "mumbai escorts", "call girls in mumbai", "vip escorts mumbai", "independent escorts mumbai", "russian escorts mumbai", "model escorts mumbai", "high profile escorts mumbai", "24/7 escorts mumbai", "escort service mumbai"],
   alternates: { canonical: "https://hotzarina.in" },
   openGraph: {
     url: "https://hotzarina.in",
@@ -54,8 +54,68 @@ const serviceCardData = [
 
 export default function Home() {
   const faqs = defaultFAQs('Mumbai');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://hotzarina.in/#business",
+        name: "Zarina Escorts Mumbai",
+        alternateName: "Hotzarina",
+        description: "Mumbai's #1 premium escort service offering verified call girls, VIP companions, Russian models and independent escorts across all Mumbai locations. Available 24/7.",
+        url: "https://hotzarina.in",
+        telephone: "+91-90389-76363",
+        image: "https://hotzarina.in/images/escorts-in-mumbai-banner.webp",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Mumbai",
+          addressRegion: "Maharashtra",
+          postalCode: "400001",
+          addressCountry: "IN",
+        },
+        geo: { "@type": "GeoCoordinates", latitude: 19.076, longitude: 72.8777 },
+        areaServed: { "@type": "City", name: "Mumbai" },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          opens: "00:00",
+          closes: "23:59",
+        },
+        priceRange: "₹₹₹",
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "1250", bestRating: "5" },
+        sameAs: ["https://wa.me/919038976363", "https://t.me/hotzarinain"],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hotzarina.in/#website",
+        url: "https://hotzarina.in",
+        name: "Zarina Escorts Mumbai",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: { "@type": "EntryPoint", urlTemplate: "https://hotzarina.in/escorts-in-{search_term_string}" },
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" }],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <main>
+      <link rel="preload" href="/images/escorts-in-mumbai-banner.webp" as="image" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero Section */}
       <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.7),rgba(128,0,128,0.7)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }} aria-label="Premium Escorts in Mumbai">
         <div className="container">

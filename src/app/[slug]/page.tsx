@@ -73,8 +73,57 @@ export default async function SlugPage({ params }: Props) {
     const faqs = defaultFAQs(location.name);
     const nearbyLocations = locations.filter((l) => l.slug !== locationSlug).slice(0, 12);
 
+    const locationJsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "ProfessionalService"],
+          "@id": `https://hotzarina.in/escorts-in-${location.slug}#business`,
+          name: `Zarina Escorts ${location.name}`,
+          description: `Premium verified escorts in ${location.name}. 100% genuine call girls available 24/7 for incall & outcall. ${location.reviewCount}+ satisfied clients.`,
+          url: `https://hotzarina.in/escorts-in-${location.slug}`,
+          telephone: "+91-90389-76363",
+          image: `https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: location.city,
+            addressRegion: location.state,
+            postalCode: location.postalCode,
+            addressCountry: "IN",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: location.lat, longitude: location.lng },
+          areaServed: { "@type": "City", name: location.name },
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            opens: "00:00",
+            closes: "23:59",
+          },
+          priceRange: "₹₹₹",
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: String(location.reviewCount), bestRating: "5" },
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+            { "@type": "ListItem", position: 2, name: `Escorts in ${location.name}`, item: `https://hotzarina.in/escorts-in-${location.slug}` },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        },
+      ],
+    };
+
     return (
       <main>
+        <link rel="preload" href={`/images/escorts/escorts-in-${locationSlug}.webp`} as="image" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(locationJsonLd) }} />
         {/* Hero */}
         <section className="hero" style={{ background: `linear-gradient(rgba(128,0,128,0.75),rgba(128,0,128,0.75)), url('/images/escorts/escorts-in-${locationSlug}.webp') center/cover no-repeat` }}>
           <div className="container">
@@ -223,8 +272,47 @@ export default async function SlugPage({ params }: Props) {
 
   const faqs = defaultFAQs('Mumbai');
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `https://hotzarina.in/${service.slug}#service`,
+        name: `${service.name} in Mumbai`,
+        description: `Book ${service.name} in Mumbai 24/7. 100% verified, discreet service. Premium ${service.name.toLowerCase()} available across all Mumbai locations.`,
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Zarina Escorts Mumbai",
+          telephone: "+91-90389-76363",
+          url: "https://hotzarina.in",
+        },
+        areaServed: { "@type": "City", name: "Mumbai" },
+        url: `https://hotzarina.in/${service.slug}`,
+        image: `https://hotzarina.in/images/Services/${service.slug}.webp`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://hotzarina.in/services" },
+          { "@type": "ListItem", position: 3, name: service.name, item: `https://hotzarina.in/${service.slug}` },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <main>
+      <link rel="preload" href={`/images/Services/${service.slug}.webp`} as="image" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       {/* Hero */}
       <section className="hero" style={{ background: `linear-gradient(rgba(128,0,128,0.8),rgba(128,0,128,0.8)), url('/images/Services/${service.slug}.webp') center/cover no-repeat` }}>
         <div className="container">

@@ -54,8 +54,49 @@ const allServices = [
 
 export default function ServicesPage() {
   const faqs = defaultFAQs('Mumbai');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://hotzarina.in/services",
+        name: "Escorts Services in Mumbai | All Categories",
+        url: "https://hotzarina.in/services",
+        description: "Browse all premium escort services in Mumbai. 30+ categories including VIP escorts, Russian escorts, model escorts, college girls, and more.",
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://hotzarina.in/services" },
+          ],
+        },
+      },
+      {
+        "@type": "ItemList",
+        name: "Escorts Services in Mumbai",
+        itemListElement: allServices.map((svc, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: svc.name,
+          url: `https://hotzarina.in/${svc.slug}`,
+          description: svc.description,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero */}
       <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.8),rgba(128,0,128,0.8)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }}>
         <div className="container">

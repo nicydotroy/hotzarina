@@ -1,0 +1,2 @@
+# Netlify redirects — strip .html from all old URLs (301 permanent)
+/*.html  /:splat  301!

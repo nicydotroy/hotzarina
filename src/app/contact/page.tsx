@@ -1,11 +1,32 @@
-'use client';
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import FAQSection from "@/components/FAQSection";
+import ContactForm from "@/components/ContactForm";
 import { defaultFAQs } from "@/lib/data";
 
+export const metadata: Metadata = {
+  title: "Contact Us | Book Mumbai Escorts 24/7 | Call +91 90389 76363",
+  description:
+    "Book premium escorts in Mumbai instantly. Call, WhatsApp, or Telegram +91 90389 76363. Booking confirmed in 15 minutes. 100% discreet, 24/7 available.",
+  keywords: [
+    "contact escorts mumbai",
+    "book escorts mumbai",
+    "escorts booking mumbai",
+    "mumbai escort phone number",
+    "whatsapp escorts mumbai",
+    "call girls contact mumbai",
+  ],
+  alternates: { canonical: "https://hotzarina.in/contact" },
+  openGraph: {
+    title: "Contact Us | Book Mumbai Escorts 24/7",
+    description:
+      "Book premium escorts in Mumbai instantly. Call or WhatsApp +91 90389 76363. 15-minute booking confirmation.",
+    url: "https://hotzarina.in/contact",
+    images: [{ url: "/images/escorts-in-mumbai-banner.webp", width: 1200, height: 630, alt: "Contact Zarina Escorts Mumbai" }],
+  },
+};
+
 const contactFAQs = [
-  { question: "How do I book an escort in Mumbai?", answer: "Booking is simple! Browse our profiles, then call us at +91 90389 76363 or WhatsApp/Telegram. Tell us your preferred companion, location, and time. We&apos;ll confirm availability and complete your booking within minutes." },
+  { question: "How do I book an escort in Mumbai?", answer: "Booking is simple! Browse our profiles, then call us at +91 90389 76363 or WhatsApp/Telegram. Tell us your preferred companion, location, and time. We'll confirm availability and complete your booking within minutes." },
   { question: "How quickly can I get an escort?", answer: "We offer same-day and express booking. Most bookings are confirmed within 15-30 minutes. For immediate requirements, call us directly for the fastest response." },
   { question: "Is the booking process discreet?", answer: "Absolutely. We handle all bookings with complete discretion and confidentiality. No information is ever shared with third parties. All communications are secure and private." },
   { question: "What areas do you cover?", answer: "We cover all of Mumbai including Andheri, Bandra, Juhu, Colaba, Powai, Worli, Lower Parel, Thane, Navi Mumbai, and 100+ more locations. We also serve major Indian cities like Delhi, Bangalore, and Chennai." },
@@ -13,24 +34,74 @@ const contactFAQs = [
   { question: "Can I see real photos before booking?", answer: "Yes! All profiles on our gallery page feature 100% real, recently verified photos. What you see is exactly what you get - no fake profiles, guaranteed." },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://hotzarina.in/#business",
+      name: "Zarina Escorts Mumbai",
+      url: "https://hotzarina.in",
+      telephone: "+91-90389-76363",
+      email: "sanjanadotsingh@gmail.com",
+      image: "https://hotzarina.in/images/escorts-in-mumbai-banner.webp",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Mumbai",
+        addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400001",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 19.076,
+        longitude: 72.8777,
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        opens: "00:00",
+        closes: "23:59",
+      },
+      priceRange: "₹₹₹",
+      sameAs: ["https://wa.me/919038976363", "https://t.me/hotzarinain"],
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://hotzarina.in/contact",
+      name: "Contact Us – Book Mumbai Escorts",
+      url: "https://hotzarina.in/contact",
+      description: "Contact Zarina Escorts Mumbai to book premium escorts. Available 24/7 via phone, WhatsApp, and Telegram.",
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+          { "@type": "ListItem", position: 2, name: "Contact", item: "https://hotzarina.in/contact" },
+        ],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: contactFAQs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
+};
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Redirect to WhatsApp with form data as message
-    const msg = encodeURIComponent(
-      `New Booking Inquiry:\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}\nMessage: ${formData.message}`
-    );
-    window.open(`https://wa.me/919038976363?text=${msg}`, '_blank');
-    setSubmitted(true);
-  };
-
-  const faqs = defaultFAQs('Mumbai');
+  const faqs = defaultFAQs("Mumbai");
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero */}
       <section className="hero" style={{ background: "linear-gradient(rgba(128,0,128,0.8),rgba(128,0,128,0.8)), url('/images/escorts-in-mumbai-banner.webp') center/cover no-repeat" }}>
         <div className="container">
@@ -52,92 +123,7 @@ export default function ContactPage() {
             <div>
               <h2 style={{ color: '#800080', marginBottom: '0.5rem' }}>Send Us a Booking Inquiry</h2>
               <p style={{ color: '#555', marginBottom: '1.5rem' }}>Fill in your details and we&apos;ll get back to you instantly via WhatsApp.</p>
-              {submitted ? (
-                <div style={{ background: '#f0fdf4', border: '1px solid #86efac', borderRadius: '12px', padding: '2rem', textAlign: 'center' }}>
-                  <p style={{ fontSize: '2rem', marginBottom: '1rem' }}>✅</p>
-                  <h3 style={{ color: '#16a34a', marginBottom: '0.5rem' }}>Inquiry Sent!</h3>
-                  <p style={{ color: '#555' }}>Your inquiry has been forwarded to our WhatsApp. Our team will confirm your booking shortly.</p>
-                  <button onClick={() => setSubmitted(false)} style={{ marginTop: '1rem', background: '#800080', color: 'white', border: 'none', borderRadius: '8px', padding: '0.75rem 1.5rem', cursor: 'pointer', fontSize: '1rem' }}>Send Another Inquiry</button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div>
-                    <label htmlFor="name" style={{ display: 'block', fontWeight: '600', marginBottom: '0.4rem', color: '#333' }}>Your Name *</label>
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter your name"
-                      style={{ width: '100%', padding: '0.75rem 1rem', border: '2px solid #e5e7eb', borderRadius: '8px', fontSize: '1rem', transition: 'border-color 0.2s', boxSizing: 'border-box' }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" style={{ display: 'block', fontWeight: '600', marginBottom: '0.4rem', color: '#333' }}>Phone Number *</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 XXXXX XXXXX"
-                      style={{ width: '100%', padding: '0.75rem 1rem', border: '2px solid #e5e7eb', borderRadius: '8px', fontSize: '1rem', boxSizing: 'border-box' }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" style={{ display: 'block', fontWeight: '600', marginBottom: '0.4rem', color: '#333' }}>Email (Optional)</label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your@email.com"
-                      style={{ width: '100%', padding: '0.75rem 1rem', border: '2px solid #e5e7eb', borderRadius: '8px', fontSize: '1rem', boxSizing: 'border-box' }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="service" style={{ display: 'block', fontWeight: '600', marginBottom: '0.4rem', color: '#333' }}>Service Required *</label>
-                    <select
-                      id="service"
-                      required
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      style={{ width: '100%', padding: '0.75rem 1rem', border: '2px solid #e5e7eb', borderRadius: '8px', fontSize: '1rem', boxSizing: 'border-box', appearance: 'none', background: 'white' }}
-                    >
-                      <option value="">Select a service</option>
-                      <option value="VIP Escorts">VIP Escorts</option>
-                      <option value="Independent Escorts">Independent Escorts</option>
-                      <option value="Model Escorts">Model Escorts</option>
-                      <option value="College Girls">College Girls</option>
-                      <option value="Russian Escorts">Russian Escorts</option>
-                      <option value="High Profile Escorts">High Profile Escorts</option>
-                      <option value="Celebrity Escorts">Celebrity Escorts</option>
-                      <option value="Housewife Escorts">Housewife Escorts</option>
-                      <option value="Air Hostess Escorts">Air Hostess Escorts</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" style={{ display: 'block', fontWeight: '600', marginBottom: '0.4rem', color: '#333' }}>Additional Requirements</label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us your preferred location, time, duration, or any special requirements..."
-                      style={{ width: '100%', padding: '0.75rem 1rem', border: '2px solid #e5e7eb', borderRadius: '8px', fontSize: '1rem', resize: 'vertical', boxSizing: 'border-box' }}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    style={{ fontSize: '1rem', padding: '0.9rem', cursor: 'pointer' }}
-                  >
-                    💬 Send via WhatsApp
-                  </button>
-                </form>
-              )}
+              <ContactForm />
             </div>
 
             {/* Contact Info */}
