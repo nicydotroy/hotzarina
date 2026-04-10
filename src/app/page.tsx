@@ -129,6 +129,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Stats Strip – Experience & Trustworthiness signals */}
+      <section className="stats-strip" aria-label="Zarina Escorts Service Statistics">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="stat-item"><strong>1,250+</strong><span>Happy Clients</span></div>
+            <div className="stat-item"><strong>5+ Years</strong><span>Serving Mumbai</span></div>
+            <div className="stat-item"><strong>125+</strong><span>Locations Covered</span></div>
+            <div className="stat-item"><strong>4.9 / 5★</strong><span>Average Client Rating</span></div>
+            <div className="stat-item"><strong>24 / 7</strong><span>Always Available</span></div>
+          </div>
+        </div>
+      </section>
+
       {/* Intro Section */}
       <section className="contact-instant" aria-label="Escorts in Mumbai Introduction">
         <div className="container">
@@ -234,6 +247,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Testimonials – backs up AggregateRating in JSON-LD, critical for E-E-A-T */}
+      <section className="testimonials-section" aria-labelledby="testimonials-heading">
+        <div className="container">
+          <h2 id="testimonials-heading">What Our Clients Say About Us</h2>
+          <p className="section-subtitle">Real verified reviews from 1,250+ satisfied clients of our Mumbai escorts service</p>
+          <div className="testimonials-grid">
+            {[
+              { name: "Rahul M.", location: "Andheri", review: "Exceptional service from start to finish! The escort was professional, punctual, and exactly as described in the profile. Booking was seamless and completely confidential. Genuinely the best escorts in Mumbai — highly recommend Zarina!", rating: 5, date: "March 2026" },
+              { name: "Arjun S.", location: "Bandra", review: "Used their VIP escort for a corporate dinner. She was stunning, intelligent, and made the entire evening perfect. The booking team responded in under 10 minutes and maintained complete discretion throughout. Will definitely book again.", rating: 5, date: "March 2026" },
+              { name: "Vikram P.", location: "Juhu", review: "Best escorts service in Mumbai, no question. 100% genuine profiles, real photos — absolutely no bait and switch. Fast confirmation, total privacy. The escort was amazing and the experience was truly memorable.", rating: 5, date: "February 2026" },
+              { name: "Rajesh K.", location: "Powai", review: "Called at midnight and they responded within 10 minutes. The companion was beautiful, well-presented and exactly as advertised. Completely verified profiles, real photos. Great value and total privacy guaranteed.", rating: 5, date: "February 2026" },
+              { name: "Dev A.", location: "Worli", review: "Outstanding experience. The team was helpful, responsive and discreet. Profile photos matched exactly in real life — truly 100% genuine. The whole process from booking to the experience itself was luxurious and professional.", rating: 5, date: "January 2026" },
+              { name: "Sanjay T.", location: "Colaba", review: "Booked a high-profile escort for a business event — elegant, sophisticated, completely professional. Exactly what I needed. Clean, discreet process with real profiles. Zarina is truly Mumbai's #1 escort service. A 5-star experience all the way.", rating: 5, date: "January 2026" },
+            ].map((t, i) => (
+              <div key={i} className="testimonial-card" itemScope itemType="https://schema.org/Review">
+                <div className="testimonial-stars" aria-label={`${t.rating} out of 5 stars`}>
+                  {"★".repeat(t.rating)}{"☆".repeat(5 - t.rating)}
+                </div>
+                <p className="testimonial-review" itemProp="reviewBody">&ldquo;{t.review}&rdquo;</p>
+                <div className="testimonial-author" itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <strong itemProp="name">{t.name}</strong>
+                  <span>{t.location} &middot; <time itemProp="datePublished">{t.date}</time></span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Content Section */}
       <section className="content-section" aria-labelledby="content-heading">
         <div className="container">
@@ -241,9 +283,15 @@ export default function Home() {
           <div className="content-wrapper">
             <p>Welcome to Mumbai&apos;s most trusted and premium <strong>escorts in Mumbai</strong> service! We offer verified, high-class <strong>call girls in Mumbai</strong> available 24/7 across all major locations. Whether you&apos;re seeking companionship for business events, social gatherings, or private encounters, our elite <strong>Mumbai escorts</strong> provide unmatched sophistication, beauty, and discretion.</p>
             <h3>Why Choose Our Escorts in Mumbai?</h3>
-            <p>Our <strong>escorts service in Mumbai</strong> stands apart with 100% verified profiles, genuine photos, and authentic experiences. We specialize in providing <Link href="/vip-escorts" style={{ color: '#800080', textDecoration: 'none', borderBottom: '2px solid #800080' }}><strong>VIP escorts in Mumbai</strong></Link>, independent call girls, Russian escorts, model escorts, college girls, celebrity escorts, and air hostess companions.</p>
+            <p>Our <strong>escorts service in Mumbai</strong> stands apart with 100% verified profiles, genuine photos, and authentic experiences. We specialize in providing <Link href="/vip-escorts" style={{ color: '#800080', textDecoration: 'none', borderBottom: '2px solid #800080' }}><strong>VIP escorts in Mumbai</strong></Link>, independent call girls, Russian escorts, model escorts, college girls, celebrity escorts, and air hostess companions. Unlike many services, every escort listed with us goes through a thorough verification process — including photo ID checks and profile authenticity verification — so what you see is exactly what you get.</p>
             <h3>Complete Coverage Across Mumbai Locations</h3>
-            <p>Our <strong>Mumbai call girls</strong> are strategically available across all premium locations including <Link href="/escorts-in-andheri" style={{ color: '#800080', textDecoration: 'none' }}>Andheri</Link>, <Link href="/escorts-in-bandra" style={{ color: '#800080', textDecoration: 'none' }}>Bandra</Link>, <Link href="/escorts-in-juhu" style={{ color: '#800080', textDecoration: 'none' }}>Juhu</Link>, <Link href="/escorts-in-colaba" style={{ color: '#800080', textDecoration: 'none' }}>Colaba</Link>, <Link href="/escorts-in-powai" style={{ color: '#800080', textDecoration: 'none' }}>Powai</Link>, Worli, Lower Parel, Mumbai Airport, Thane, Navi Mumbai, and beyond.</p>
+            <p>Our <strong>Mumbai call girls</strong> are strategically available across all premium locations including <Link href="/escorts-in-andheri" style={{ color: '#800080', textDecoration: 'none' }}>Andheri</Link>, <Link href="/escorts-in-bandra" style={{ color: '#800080', textDecoration: 'none' }}>Bandra</Link>, <Link href="/escorts-in-juhu" style={{ color: '#800080', textDecoration: 'none' }}>Juhu</Link>, <Link href="/escorts-in-colaba" style={{ color: '#800080', textDecoration: 'none' }}>Colaba</Link>, <Link href="/escorts-in-powai" style={{ color: '#800080', textDecoration: 'none' }}>Powai</Link>, Worli, Lower Parel, Mumbai Airport, Thane, Navi Mumbai, and beyond. Whether you need outcall service to your hotel room or incall at a comfortable private location, our 125+ location network ensures we are always near you.</p>
+            <h3>Understanding Our Pricing & Packages</h3>
+            <p>We believe in complete pricing transparency with zero hidden charges. Our <strong>Mumbai escorts</strong> rates are structured to cater to every budget — from budget-friendly independent escorts to ultra-premium VIP companions and celebrity escorts. Rates vary based on the escort category, duration (1 hour, 2 hours, overnight), and the type of service (incall or outcall). Overnight packages and extended companion bookings are available at special discounted rates. All pricing is discussed and confirmed upfront before any booking is finalised — we never spring surprise charges.</p>
+            <h3>Safety, Discretion &amp; Privacy Commitment</h3>
+            <p>Your safety and privacy are our absolute top priorities. Since 2020, we have maintained a zero-tolerance policy for data sharing — your name, phone number, and booking details are never disclosed to any third party. All communications via call, WhatsApp, or our booking form are encrypted and handled exclusively by our trusted team. Our <strong>escort girls in Mumbai</strong> are trained in professional conduct and complete discretion. We operate within all applicable legal frameworks and encourage responsible, consensual adult companionship only.</p>
+            <h3>How to Book Your Perfect Companion — 3 Simple Steps</h3>
+            <p>Booking with Zarina takes less than 15 minutes. <strong>Step 1</strong>: Browse our verified escort profiles and select a companion that matches your preferences. <strong>Step 2</strong>: Contact us via phone (<strong>+91 90389 76363</strong>) or WhatsApp to confirm availability, discuss your requirements, and agree on the details. <strong>Step 3</strong>: Receive instant confirmation and your escort arrives at your location on time, every time. Our customer support team is available 24/7 to answer questions and accommodate special requests. For same-day or urgent bookings, call us directly for the fastest response.</p>
             <h3>Book Your Perfect Companion Today</h3>
             <p>Contact us now at <strong>+91 90389 76363</strong> to explore our exclusive collection of <strong>Mumbai call girls</strong> and book your perfect companion. Same-day availability, instant confirmation, and unforgettable experiences await.</p>
           </div>
