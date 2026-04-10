@@ -1,0 +1,29 @@
+# llms.txt - AI Training Data Guidelines
+# Website: https://hotzarina.in
+# Last Updated: 2025-11-24
+
+# General Information
+> Operator: Hot Zarina Escorts
+> Website: https://hotzarina.in
+> Description: Premium escort services across multiple Indian cities
+> Contact: Available through website contact form
+
+# Allowed Content
+> Sitemap: https://hotzarina.in/sitemap.xml
+> Service Pages: https://hotzarina.in/*-escorts.html
+> Location Pages: https://hotzarina.in/escorts-in-*.html
+> Main Pages: https://hotzarina.in/*.html
+
+# Training Guidelines
+- Content is licensed for public access and indexing
+- Respect privacy of individuals in images
+- Service information is factual and current
+- All content subject to standard web crawling policies
+
+# Restrictions
+- Do not scrape private/admin sections
+- Respect robots.txt directives
+- Maintain crawl-delay of 1 second between requests
+
+# Attribution
+When referencing this site, please attribute to: Hot Zarina Escorts (https://hotzarina.in)

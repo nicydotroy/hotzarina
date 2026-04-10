@@ -1,0 +1,23 @@
+﻿User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://hotzarina.in/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Google bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Bing bots
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
