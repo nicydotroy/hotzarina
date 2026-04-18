@@ -7,14 +7,6 @@ export const metadata: Metadata = {
   title: "Contact Us | Book Mumbai Escorts 24/7 | Call +91 90389 76363",
   description:
     "Book premium escorts in Mumbai instantly. Call, WhatsApp, or Telegram +91 90389 76363. Booking confirmed in 15 minutes. 100% discreet, 24/7 available.",
-  keywords: [
-    "contact escorts mumbai",
-    "book escorts mumbai",
-    "escorts booking mumbai",
-    "mumbai escort phone number",
-    "whatsapp escorts mumbai",
-    "call girls contact mumbai",
-  ],
   alternates: { canonical: "https://hotzarina.in/contact" },
   openGraph: {
     title: "Contact Us | Book Mumbai Escorts 24/7",
@@ -43,7 +35,7 @@ const jsonLd = {
       name: "Zarina Escorts Mumbai",
       url: "https://hotzarina.in",
       telephone: "+91-90389-76363",
-      email: "sanjanadotsingh@gmail.com",
+      email: "contact@hotzarina.in",
       image: "https://hotzarina.in/images/escorts-in-mumbai-banner.webp",
       address: {
         "@type": "PostalAddress",
@@ -155,11 +147,11 @@ export default function ContactPage() {
                     <small style={{ display: 'block', color: '#888' }}>Anonymous &amp; secure messaging</small>
                   </div>
                 </a>
-                <a href="mailto:sanjanadotsingh@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: '#fce7f3', padding: '1.25rem', borderRadius: '12px', textDecoration: 'none', color: '#333', transition: 'background 0.2s' }}>
+                <a href="mailto:contact@hotzarina.in" style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: '#fce7f3', padding: '1.25rem', borderRadius: '12px', textDecoration: 'none', color: '#333', transition: 'background 0.2s' }}>
                   <span style={{ fontSize: '2rem' }}>📧</span>
                   <div>
                     <strong style={{ display: 'block', color: '#be185d' }}>Email Us</strong>
-                    <span>sanjanadotsingh@gmail.com</span>
+                    <span>contact@hotzarina.in</span>
                     <small style={{ display: 'block', color: '#888' }}>For detailed inquiries and bookings</small>
                   </div>
                 </a>
@@ -222,7 +214,7 @@ export default function ContactPage() {
             {contactFAQs.map((faq, i) => (
               <div key={i} style={{ background: 'white', border: '2px solid #e9d5ff', borderRadius: '12px', padding: '1.5rem' }}>
                 <h3 style={{ color: '#800080', fontSize: '1rem', marginBottom: '0.75rem' }}>{faq.question}</h3>
-                <p style={{ color: '#555', fontSize: '0.9rem', lineHeight: '1.6' }} dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                <p style={{ color: '#555', fontSize: '0.9rem', lineHeight: '1.6' }}>{faq.answer}</p>
               </div>
             ))}
           </div>

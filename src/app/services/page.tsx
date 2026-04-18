@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 import { defaultFAQs } from "@/lib/data";
+import { serviceImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Escorts Services in Mumbai | VIP Call Girls 24/7 | Zarina",
   description: "Explore all premium escort services in Mumbai - VIP escorts, Russian escorts, college girls, model escorts, air hostess, and more. 100% verified call girls available 24/7.",
-  keywords: ["escorts services mumbai", "vip escorts mumbai", "russian escorts mumbai", "college girls mumbai", "model escorts mumbai", "call girls service mumbai"],
   alternates: { canonical: "https://hotzarina.in/services" },
   openGraph: {
     title: "Escorts Services in Mumbai | VIP Call Girls 24/7",
@@ -119,7 +119,7 @@ export default function ServicesPage() {
             {allServices.map((svc) => (
               <div key={svc.slug} className="service-card">
                 <Image
-                  src={"/images/Services/" + svc.slug + ".webp"}
+                  src={serviceImage(svc.slug)}
                   alt={svc.name + " in Mumbai"}
                   width={350}
                   height={350}

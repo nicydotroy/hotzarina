@@ -8,7 +8,6 @@ import { defaultFAQs } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Mumbai Escorts Gallery - Real Photos | Verified Call Girls | Zarina",
   description: "Browse real photos of verified Mumbai escorts. Genuine 100% real profiles of call girls in Mumbai. VIP companions, models, college girls gallery. Book 24/7.",
-  keywords: ["mumbai escorts gallery", "call girls photos mumbai", "verified escorts photos", "real escorts photos mumbai", "escorts images mumbai"],
   alternates: { canonical: "https://hotzarina.in/gallery" },
   openGraph: {
     title: "Mumbai Escorts Gallery - Real Photos | Verified Call Girls",

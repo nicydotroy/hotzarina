@@ -4,12 +4,12 @@ import Image from "next/image";
 import EscortsGrid from "@/components/EscortsGrid";
 import FAQSection from "@/components/FAQSection";
 import { locations, services, defaultFAQs } from "@/lib/data";
+import { locationImage, serviceImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Escorts in Mumbai | Premium Call Girls Service 24/7 | Zarina",
   description:
     "Top Escorts in Mumbai - 100% Verified Call Girls Available 24/7. VIP Escorts, Russian Models, Independent Companions across Andheri, Bandra, Juhu, Powai. Safe, Discreet Booking. Call Now +91 90389 76363",
-  keywords: ["escorts in mumbai", "mumbai escorts", "call girls in mumbai", "vip escorts mumbai", "independent escorts mumbai", "russian escorts mumbai", "model escorts mumbai", "high profile escorts mumbai", "24/7 escorts mumbai", "escort service mumbai"],
   alternates: { canonical: "https://hotzarina.in" },
   openGraph: {
     url: "https://hotzarina.in",
@@ -164,7 +164,7 @@ export default function Home() {
           <div className="services-grid">
             {serviceCardData.map((svc) => (
               <div key={svc.slug} className="service-card">
-                <Image src={"/images/Services/" + svc.slug + ".webp"} alt={svc.name + " in Mumbai"} width={350} height={350} loading="lazy" />
+                <Image src={serviceImage(svc.slug)} alt={svc.name + " in Mumbai"} width={350} height={350} loading="lazy" />
                 <div className="service-info">
                   <h3>{svc.name}</h3>
                   <div className="service-details">
@@ -195,7 +195,7 @@ export default function Home() {
           <div className="locations-grid">
             {locations.map((loc) => (
               <div key={loc.slug} className="location-card">
-                <Image src={"/images/escorts/escorts-in-" + loc.slug + ".webp"} alt={"Escorts in " + loc.name + " - Call Girls Service " + loc.name} width={350} height={350} loading="lazy" />
+                <Image src={locationImage(loc.slug)} alt={"Escorts in " + loc.name + " - Call Girls Service " + loc.name} width={350} height={350} loading="lazy" />
                 <div className="location-info">
                   <Link href={"/escorts-in-" + loc.slug} className="btn-location" aria-label={"Book Escorts in " + loc.name}>Escorts in {loc.name}</Link>
                 </div>

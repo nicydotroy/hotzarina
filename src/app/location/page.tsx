@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 import { locations, defaultFAQs } from "@/lib/data";
+import { locationImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Escorts in All Mumbai Locations | Call Girls Near You | Zarina",
   description: "Find verified escorts near you across all Mumbai locations - Andheri, Bandra, Juhu, Colaba, Powai, Thane, Navi Mumbai and 100+ more areas. Book call girls 24/7.",
-  keywords: ["escorts mumbai locations", "call girls near me", "escorts andheri", "escorts bandra", "escorts juhu", "escorts colaba", "escorts thane", "escorts navi mumbai"],
   alternates: { canonical: "https://hotzarina.in/location" },
   openGraph: {
     title: "Escorts in All Mumbai Locations | Call Girls Near You",
@@ -96,7 +96,7 @@ export default function LocationPage() {
             {locations.map((loc) => (
               <div key={loc.slug} className="location-card">
                 <Image
-                  src={"/images/escorts/escorts-in-" + loc.slug + ".webp"}
+                  src={locationImage(loc.slug)}
                   alt={"Escorts in " + loc.name + " - Verified Call Girls " + loc.name}
                   width={350}
                   height={350}

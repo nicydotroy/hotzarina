@@ -15,7 +15,6 @@ export default function Header() {
     { href: '/location', label: 'Location' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/contact', label: 'Contact' },
-    { href: '/contact', label: 'Website on Rent' },
   ];
 
   return (

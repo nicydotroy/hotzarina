@@ -20,18 +20,6 @@ export const metadata: Metadata = {
   },
   description:
     "Mumbai's #1 escort service — 100% verified call girls available 24/7. VIP escorts, Russian models, independent companions across Andheri, Bandra, Juhu & Powai. Safe, discreet booking. Call +91 90389 76363.",
-  keywords: [
-    "escorts in mumbai",
-    "mumbai escorts",
-    "call girls in mumbai",
-    "vip escorts mumbai",
-    "independent escorts mumbai",
-    "russian escorts mumbai",
-    "model escorts mumbai",
-    "high profile escorts mumbai",
-    "female escorts mumbai",
-    "escort service mumbai",
-  ],
   authors: [{ name: "Zarina Escorts Mumbai" }],
   creator: "Zarina Escorts Mumbai",
   publisher: "Zarina Escorts Mumbai",
