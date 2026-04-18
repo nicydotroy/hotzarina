@@ -1,0 +1,35 @@
+# HotZarina
+
+> HotZarina (hotzarina.in) is India's premium escort and spa directory — connecting users with verified female escorts, spa services, and male escorts across 300+ locations in India.
+
+## About
+
+HotZarina provides location-specific pages for escorts, spa centers, and male escort services across major Indian cities including Mumbai, Delhi, Pune, Bangalore, Chennai, Hyderabad, Kolkata, Ahmedabad, Jaipur, Nashik, Varanasi, Patna, and hundreds more.
+
+## Key Pages
+
+- Homepage: https://hotzarina.in/
+- Contact: https://hotzarina.in/contact
+- Gallery: https://hotzarina.in/gallery
+- Services: https://hotzarina.in/services
+- Locations: https://hotzarina.in/location
+
+## Page Types (per location)
+
+Each location slug supports three page types:
+- `/escorts-in-{slug}` — Female escorts listing page
+- `/spa-center-in-{slug}` — Spa and massage services page
+- `/male-escorts-in-{slug}` — Male escorts listing page
+
+## Coverage
+
+300+ locations across Indian cities including:
+Mumbai, Delhi, Pune, Bangalore, Chennai, Hyderabad, Kolkata, Ahmedabad, Jaipur, Surat, Nashik, Nagpur, Varanasi, Patna, Lucknow, Kanpur, Agra, Indore, Bhopal, Thane, Navi Mumbai, Gurgaon, Noida, Faridabad, Ghaziabad, Meerut, Allahabad, Vadodara, Rajkot, Ludhiana, Chandigarh, Amritsar, Vishakhapatnam, Coimbatore, Madurai, Mysore, Hubli, Mangalore, Kochi, Thiruvananthapuram and many more.
+
+## Sitemap
+
+Full sitemap with all 1100+ URLs: https://hotzarina.in/sitemap.xml
+
+## Contact
+
+Website: https://hotzarina.in/contact
