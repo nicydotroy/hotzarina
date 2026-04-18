@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const location = getLocationBySlug(locationSlug);
     if (!location) return { title: "Not Found" };
     return {
-      title: `Escorts in ${location.name} | Premium Call Girls ${location.name} | Zarina`,
+      title: `Escorts in ${location.name} | Call Girls 24/7 | Zarina`,
       description: `100% verified escorts in ${location.name}. Premium call girls available 24/7 for incall & outcall. ${location.reviewCount}+ client reviews. Book now at +91 90389 76363.`,
       keywords: [`escorts in ${location.name.toLowerCase()}`, `${location.name.toLowerCase()} escorts`, `call girls ${location.name.toLowerCase()}`, `escort service ${location.name.toLowerCase()}`],
       alternates: { canonical: `https://hotzarina.in/escorts-in-${location.slug}` },
@@ -44,6 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         siteName: "Hotzarina",
         locale: "en_IN",
         type: "website",
+        images: [{ url: `https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`, width: 1200, height: 630, alt: `Escorts in ${location.name} | Zarina` }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `Escorts in ${location.name} | Call Girls 24/7 | Zarina`,
+        description: `Verified escorts in ${location.name} available 24/7. ${location.reviewCount}+ reviews.`,
+        images: [`https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`],
       },
     };
   }
@@ -53,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const location = getLocationBySlug(locationSlug);
     if (!location) return { title: "Not Found" };
     return {
-      title: `SPA Center in ${location.name} | Best Massage & Body Spa ${location.name} | Hotzarina`,
+      title: `SPA Center in ${location.name} | Massage & Body Spa 24/7 | Hotzarina`,
       description: `Top-rated SPA center in ${location.name}. Book full body massage, Swedish massage, body-to-body, Nuru & happy ending massage. 100% private & hygienic. Call +91 90389 76363.`,
       keywords: [
         `spa center in ${location.name.toLowerCase()}`,
@@ -67,12 +74,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
       alternates: { canonical: `https://hotzarina.in/spa-center-in-${location.slug}` },
       openGraph: {
-        title: `SPA Center in ${location.name} | Best Massage & Body Spa`,
+        title: `SPA Center in ${location.name} | Body Massage Services`,
         description: `Premium SPA center in ${location.name} — full body massage, couple spa, Nuru & happy ending. 24/7 available. Call +91 90389 76363.`,
         url: `https://hotzarina.in/spa-center-in-${location.slug}`,
         siteName: "Hotzarina",
         locale: "en_IN",
         type: "website",
+        images: [{ url: `https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`, width: 1200, height: 630, alt: `SPA Center in ${location.name}` }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `SPA Center in ${location.name} | Massage & Body Spa 24/7 | Hotzarina`,
+        description: `Premium SPA center in ${location.name} — full body massage, couple spa, Nuru & happy ending. 24/7 available.`,
+        images: [`https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`],
       },
     };
   }
@@ -82,7 +96,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const location = getLocationBySlug(locationSlug);
     if (!location) return { title: "Not Found" };
     return {
-      title: `Male Escorts in ${location.name} | Handsome Male Companions 24/7 | Hotzarina`,
+      title: `Male Escorts in ${location.name} | Male Companions 24/7 | Hotzarina`,
       description: `Premium male escorts in ${location.name}. Handsome, verified male companions for female clients, couples & LGBTQ+. Incall & outcall available 24/7. Call +91 90389 76363.`,
       keywords: [
         `male escorts in ${location.name.toLowerCase()}`,
@@ -102,6 +116,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         siteName: "Hotzarina",
         locale: "en_IN",
         type: "website",
+        images: [{ url: `https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`, width: 1200, height: 630, alt: `Male Escorts in ${location.name}` }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `Male Escorts in ${location.name} | Male Companions 24/7 | Hotzarina`,
+        description: `Book premium male escorts in ${location.name}. 100% verified, discreet, available 24/7 for incall & outcall.`,
+        images: [`https://hotzarina.in/images/escorts/escorts-in-${location.slug}.webp`],
       },
     };
   }
@@ -134,7 +155,11 @@ export default async function SlugPage({ params }: Props) {
     if (!location) notFound();
 
     const faqs = defaultFAQs(location.name);
-    const nearbyLocations = locations.filter((l) => l.slug !== locationSlug).slice(0, 12);
+    const nearbyLocations = [
+      ...locations.filter((l) => l.slug !== locationSlug && l.city === location.city),
+      ...locations.filter((l) => l.slug !== locationSlug && l.state === location.state && l.city !== location.city),
+      ...locations.filter((l) => l.slug !== locationSlug && l.state !== location.state),
+    ].slice(0, 12);
 
     const locationJsonLd = {
       "@context": "https://schema.org",
@@ -324,7 +349,7 @@ export default async function SlugPage({ params }: Props) {
           </div>
         </section>
 
-        <FAQSection faqs={faqs} location={location.name} />
+        <FAQSection faqs={faqs} location={location.name} type="escorts" />
       </main>
     );
   }
@@ -336,7 +361,11 @@ export default async function SlugPage({ params }: Props) {
     if (!location) notFound();
 
     const spaFaqs = defaultSpaFAQs(location.name);
-    const nearbySpaLocations = locations.filter((l) => l.slug !== locationSlug).slice(0, 12);
+    const nearbySpaLocations = [
+      ...locations.filter((l) => l.slug !== locationSlug && l.city === location.city),
+      ...locations.filter((l) => l.slug !== locationSlug && l.state === location.state && l.city !== location.city),
+      ...locations.filter((l) => l.slug !== locationSlug && l.state !== location.state),
+    ].slice(0, 12);
 
     const spaJsonLd = {
       "@context": "https://schema.org",
@@ -561,7 +590,7 @@ export default async function SlugPage({ params }: Props) {
           </div>
         </section>
 
-        <FAQSection faqs={spaFaqs} location={location.name} />
+        <FAQSection faqs={spaFaqs} location={location.name} type="spa" />
       </main>
     );
   }
@@ -810,7 +839,11 @@ export default async function SlugPage({ params }: Props) {
     if (!location) notFound();
 
     const maleFaqs = defaultMaleEscortFAQs(location.name);
-    const nearbyLocations = locations.filter((l) => l.slug !== locationSlug).slice(0, 12);
+    const nearbyLocations = [
+      ...locations.filter((l) => l.slug !== locationSlug && l.city === location.city),
+      ...locations.filter((l) => l.slug !== locationSlug && l.state === location.state && l.city !== location.city),
+      ...locations.filter((l) => l.slug !== locationSlug && l.state !== location.state),
+    ].slice(0, 12);
 
     const maleJsonLd = {
       "@context": "https://schema.org",
@@ -1007,7 +1040,7 @@ export default async function SlugPage({ params }: Props) {
           </div>
         </section>
 
-        <FAQSection faqs={maleFaqs} location={location.name} />
+        <FAQSection faqs={maleFaqs} location={location.name} type="male-escorts" />
       </main>
     );
   }

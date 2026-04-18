@@ -10,9 +10,10 @@ interface FAQItem {
 interface FAQSectionProps {
   faqs: FAQItem[];
   location?: string;
+  type?: 'escorts' | 'spa' | 'male-escorts';
 }
 
-export default function FAQSection({ faqs, location = 'Mumbai' }: FAQSectionProps) {
+export default function FAQSection({ faqs, location = 'Mumbai', type = 'escorts' }: FAQSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setActiveIndex(activeIndex === i ? null : i);
@@ -21,12 +22,23 @@ export default function FAQSection({ faqs, location = 'Mumbai' }: FAQSectionProp
   const leftFaqs = faqs.slice(0, half);
   const rightFaqs = faqs.slice(half);
 
+  const headingMap = {
+    escorts: `Frequently Asked Questions — Escorts in ${location}`,
+    spa: `Frequently Asked Questions — SPA Center in ${location}`,
+    'male-escorts': `Frequently Asked Questions — Male Escorts in ${location}`,
+  };
+  const subtitleMap = {
+    escorts: `Everything you need to know about our escort services in ${location}`,
+    spa: `Everything you need to know about our SPA & massage services in ${location}`,
+    'male-escorts': `Everything you need to know about our male escort services in ${location}`,
+  };
+
   return (
     <section className="faq-section">
       <div className="container">
         <div className="faq-header">
-          <h2>Frequently Asked Questions - Escorts in {location}</h2>
-          <p>Everything you need to know about our escort services in {location}</p>
+          <h2>{headingMap[type]}</h2>
+          <p>{subtitleMap[type]}</p>
         </div>
         <div className="faq-grid">
           <div className="faq-column">
