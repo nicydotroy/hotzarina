@@ -381,6 +381,22 @@ export const defaultFAQs = (location: string) => [
     question: `Do you offer couple or group bookings?`,
     answer: `Yes! We provide couple escorts for threesome experiences, group bookings for parties and events, and multiple escorts for bachelor parties. Contact us with your requirements for customized group packages.`,
   },
+  {
+    question: `What is the difference between incall and outcall escort services in ${location}?`,
+    answer: `Incall means you visit our escort's private apartment in ${location} — a safe, clean, and discreet environment. Outcall means your chosen escort travels to your hotel room, home, or any private venue in ${location}. Both options are available 24/7. Outcall has a small travel surcharge depending on distance.`,
+  },
+  {
+    question: `Do you offer Russian or foreign escorts in ${location}?`,
+    answer: `Yes! We have Russian escorts, European companions, and foreign models available in ${location}. These premium escorts are verified, fluent in English, and offer a luxury experience. Availability is limited — advance booking of 2–4 hours is recommended for foreign escorts in ${location}.`,
+  },
+  {
+    question: `How do I ensure my privacy when booking escorts in ${location}?`,
+    answer: `We take privacy extremely seriously. We never call from identifiable numbers, never share your details, and use discreet billing with no visible service descriptions. All our ${location} escorts sign strict NDAs. Your identity and booking history remain completely private and confidential at all times.`,
+  },
+  {
+    question: `Do you offer VIP and premium escort packages in ${location}?`,
+    answer: `Yes! Our VIP packages in ${location} include celebrity-look escorts, model companions, air hostess-type companions, and high-profile VIP escorts with DSLR-verified photos. VIP packages include priority booking, extended sessions, and dedicated account managers. Call +91 90389 76363 for VIP pricing and availability in ${location}.`,
+  },
 ];
 
 export const spaServices = [
@@ -431,6 +447,38 @@ export const defaultSpaFAQs = (location: string) => [
     question: `Are the SPA therapists in ${location} certified and experienced?`,
     answer: `All therapists at our ${location} SPA are professionally trained, certified, and carry a minimum of 2 years of hands-on experience. They regularly undergo advanced training in Swedish, Thai, deep tissue, and specialized massage techniques to deliver world-class service.`,
   },
+  {
+    question: `What is body-to-body massage and is it available in ${location}?`,
+    answer: `Body-to-body massage (B2B) is a sensual full-body massage where the therapist uses their body to apply pressure and warmth along your muscles. It is one of the most relaxing experiences available at our ${location} SPA center. 100% private, performed in a locked room by a trained female therapist. Available 24/7 — call +91 90389 76363.`,
+  },
+  {
+    question: `What is Nuru massage and is it available in ${location}?`,
+    answer: `Nuru massage originated in Japan and uses a special odourless, colourless Nuru gel applied over the body. The therapist performs a full-body slide massage for deep relaxation. Our ${location} SPA center offers authentic Nuru massage in a clean, private, and fully equipped room. Available 24/7 for incall and outcall in ${location}.`,
+  },
+  {
+    question: `What is the duration of a typical massage session in ${location}?`,
+    answer: `Standard sessions at our ${location} SPA are 60 minutes or 90 minutes. Extended 120-minute and 180-minute packages are also available for deep relaxation. Couple massages are 90 or 120 minutes. For happy ending, Nuru, and body-to-body massages, 60 and 90 minute options are standard. Call to book your preferred duration.`,
+  },
+  {
+    question: `Do you have female therapists at the SPA center in ${location}?`,
+    answer: `Yes! All our massage therapists in ${location} are professional female therapists. They are trained, certified, and experienced in a wide range of techniques including Swedish, Thai, deep tissue, body-to-body, and Nuru massage. You can request a specific therapist based on her profile photo when booking.`,
+  },
+  {
+    question: `Is there a happy ending massage available in ${location}?`,
+    answer: `Yes. Our ${location} SPA center offers happy ending massage — a full body massage session concluded with a satisfying climax by a skilled female therapist. Completely private, hygienic, and discreet. This service is available 24/7 for incall at our ${location} center or as outcall to your hotel. Call +91 90389 76363 to book.`,
+  },
+  {
+    question: `What is the difference between Swedish and deep tissue massage in ${location}?`,
+    answer: `Swedish massage uses long, gliding strokes to relax muscles and improve circulation — perfect for stress relief and first-time clients. Deep tissue massage targets deeper muscle layers with firmer pressure to treat chronic pain, knots, and tension. Our ${location} SPA therapists are skilled in both techniques and can customise pressure during your session.`,
+  },
+  {
+    question: `What should I wear during a massage session at your ${location} SPA?`,
+    answer: `You will be provided with fresh towels and disposable undergarments at our ${location} SPA center. For most massages, clients undress to their comfort level — full undress is standard for body-to-body and Nuru massage for the technique to work effectively. Robes and slippers are available. Privacy and dignity are maintained at all times.`,
+  },
+  {
+    question: `Can I book a SPA session as a gift or for a special occasion in ${location}?`,
+    answer: `Absolutely! Our ${location} SPA offers gift bookings for birthdays, anniversaries, honeymoons, and special occasions. We can arrange couple packages, champagne setups, and customised décor for special sessions. Call +91 90389 76363 to plan your gifted SPA experience in ${location}.`,
+  },
 ];
 
 export const defaultMaleEscortFAQs = (location: string) => [
@@ -465,5 +513,37 @@ export const defaultMaleEscortFAQs = (location: string) => [
   {
     question: `Can female clients hire male escorts in ${location}?`,
     answer: `Absolutely! Our male escorts in ${location} are available for female clients, couples, and LGBTQ+ clients. We are inclusive, non-judgmental, and professional. Call +91 90389 76363 to book the perfect male companion in ${location}.`,
+  },
+  {
+    question: `Do male escorts in ${location} accompany clients to parties and events?`,
+    answer: `Yes! Our male escorts in ${location} are excellent social companions for parties, corporate events, weddings, and private gatherings. They are well-dressed, articulate, and socially refined. A party escort package can be booked for 3, 6, or 12 hours depending on the event duration. Call +91 90389 76363 to book a male escort for your event in ${location}.`,
+  },
+  {
+    question: `What is the minimum booking duration for male escorts in ${location}?`,
+    answer: `The minimum booking duration for male escorts in ${location} is typically 2 hours for standard sessions. Shorter 1-hour express bookings may be available depending on the companion. Full-night (8–10 hour) and 24-hour travel companion packages are also available. Contact us for current minimums and pricing in ${location}.`,
+  },
+  {
+    question: `Can male escorts in ${location} travel with clients?`,
+    answer: `Yes! Several of our male escorts in ${location} are available for travel companionship — both domestic (within India) and international trips. Travel companion packages include visa support assistance, itinerary planning, and 24/7 companionship. Advance booking of at least 48 hours is required for travel escort packages. Call +91 90389 76363.`,
+  },
+  {
+    question: `Are male escorts in ${location} available for LGBTQ+ clients?`,
+    answer: `Yes, we are a fully inclusive service. Our male escorts in ${location} are available for gay, bisexual, transgender, and all LGBTQ+ clients. All our companions are non-judgmental and respectful. We maintain strict confidentiality for all LGBTQ+ bookings. Call +91 90389 76363 — we welcome and celebrate all clients.`,
+  },
+  {
+    question: `What should I expect from a male escort service in ${location}?`,
+    answer: `Expect a premium, professional experience. Your male escort in ${location} will arrive on time, well-groomed, and dressed appropriately. They are trained for social etiquette, conversation, and companionship. All services are delivered with complete discretion and respect for your boundaries. Your satisfaction and comfort are our highest priority.`,
+  },
+  {
+    question: `Can I choose the specific male escort I want in ${location}?`,
+    answer: `Yes! We share profiles with photos of available male escorts in ${location} so you can choose your preferred companion. You can filter by age, height, body type, personality, and speciality. If your first choice is unavailable, we will suggest equally matched alternatives. Call +91 90389 76363 to view available profiles in ${location} right now.`,
+  },
+  {
+    question: `Do male escorts in ${location} offer overnight packages?`,
+    answer: `Yes. Overnight packages (typically 8–12 hours) are among the most popular options for our male escorts in ${location}. These include a full evening of companionship, dinner, social event attendance, and private time. Special rates apply for overnight bookings — advance reservation of 4–6 hours is recommended. Call us at +91 90389 76363 for overnight pricing.`,
+  },
+  {
+    question: `What languages do male escorts in ${location} speak?`,
+    answer: `Most of our male escorts in ${location} are fluent in English and Hindi. Many also speak regional languages including Marathi, Punjabi, Bengali, Tamil, Telugu, Kannada, and Gujarati. For foreign language requirements (Russian, Arabic, French), please enquire in advance. We will match you with a companion who communicates in your preferred language.`,
   },
 ];
