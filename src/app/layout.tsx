@@ -75,6 +75,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://hotzarina.in",
   },
+  verification: {
+    google: "izcJ4rkKRnpjvolk7kqnqbFI23kMkDQQHl-ZC6Wf6VU",
+  },
   other: {
     "geo.region": "IN-MH",
     "geo.placename": "Mumbai, Maharashtra",
