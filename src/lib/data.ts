@@ -19,7 +19,6 @@ export const locations: LocationData[] = [
   { slug: 'ambivali', name: 'Ambivali', city: 'Ambivali', state: 'Maharashtra', postalCode: '421102', lat: 19.2167, lng: 73.2000, description: 'Premium escorts in Ambivali available 24/7.', reviewCount: 32, areas: ['Ambivali Station', 'Shirgaon'] },
   { slug: 'andheri', name: 'Andheri', city: 'Andheri', state: 'Maharashtra', postalCode: '400053', lat: 19.1136, lng: 72.8697, description: 'Premium escorts in Andheri available 24/7. One of Mumbai\'s most vibrant suburbs.', reviewCount: 196, areas: ['Andheri East', 'Andheri West', 'Versova', 'Jogeshwari', 'Lokhandwala', 'Oshiwara'] },
   { slug: 'asangaon', name: 'Asangaon', city: 'Asangaon', state: 'Maharashtra', postalCode: '421601', lat: 19.5167, lng: 73.1833, description: 'Premium escorts in Asangaon available 24/7.', reviewCount: 28, areas: ['Asangaon Station', 'Village Area'] },
-  { slug: 'baba', name: 'Baba', city: 'Baba', state: 'Maharashtra', postalCode: '401202', lat: 19.5500, lng: 73.0000, description: 'Premium escorts in Baba available 24/7.', reviewCount: 21, areas: ['Baba Station Area'] },
   { slug: 'badlapur', name: 'Badlapur', city: 'Badlapur', state: 'Maharashtra', postalCode: '421503', lat: 19.1573, lng: 73.2637, description: 'Premium escorts in Badlapur available 24/7.', reviewCount: 47, areas: ['Badlapur East', 'Badlapur West', 'Manjarli'] },
   { slug: 'bandra', name: 'Bandra', city: 'Bandra', state: 'Maharashtra', postalCode: '400050', lat: 19.0596, lng: 72.8295, description: 'Premium escorts in Bandra - Mumbai\'s most upscale suburb. Queen of Suburbs.', reviewCount: 218, areas: ['Bandra West', 'Bandra East', 'Khar', 'Santacruz', 'Linking Road', 'Carter Road'] },
   { slug: 'bangalore', name: 'Bangalore', city: 'Bangalore', state: 'Karnataka', postalCode: '560001', lat: 12.9716, lng: 77.5946, description: 'Premium escorts in Bangalore available 24/7.', reviewCount: 312, areas: ['Koramangala', 'Indiranagar', 'Whitefield', 'MG Road', 'HSR Layout', 'Jayanagar'] },
@@ -362,5 +361,40 @@ export const defaultSpaFAQs = (location: string) => [
   {
     question: `Are the SPA therapists in ${location} certified and experienced?`,
     answer: `All therapists at our ${location} SPA are professionally trained, certified, and carry a minimum of 2 years of hands-on experience. They regularly undergo advanced training in Swedish, Thai, deep tissue, and specialized massage techniques to deliver world-class service.`,
+  },
+];
+
+export const defaultMaleEscortFAQs = (location: string) => [
+  {
+    question: `Are male escorts available in ${location}?`,
+    answer: `Yes! We provide premium male escorts in ${location} available 24/7. Our male companions are handsome, well-groomed, and professionally trained for incall and outcall services. Call or WhatsApp +91 90389 76363 to book a male escort in ${location}.`,
+  },
+  {
+    question: `What services do male escorts in ${location} offer?`,
+    answer: `Our male escorts in ${location} offer companionship, dinner dates, travel companionship, party escort, hotel visits, and private sessions. All services are 100% discreet and professional. Available for both male and female clients.`,
+  },
+  {
+    question: `How do I book a male escort in ${location}?`,
+    answer: `Booking a male escort in ${location} is simple — call or WhatsApp +91 90389 76363. Share your preferred time, location in ${location}, and service type. We confirm instantly and arrange a companion within 30–60 minutes.`,
+  },
+  {
+    question: `Are male escort services in ${location} confidential?`,
+    answer: `100% yes. All male escort bookings in ${location} are completely confidential. We never share client details with anyone. Your privacy is our top priority — discreet billing, no names used publicly.`,
+  },
+  {
+    question: `What is the rate for male escorts in ${location}?`,
+    answer: `Male escort rates in ${location} vary by duration and service type. Call +91 90389 76363 for current pricing. We offer competitive rates with no hidden charges. Short 2-hour sessions, full night, and travel packages all available.`,
+  },
+  {
+    question: `Do male escorts in ${location} offer outcall/hotel visits?`,
+    answer: `Yes, our male escorts in ${location} are available for both incall at our private location and outcall to your hotel, home or any private venue across ${location}. Available 24/7 including weekends and holidays.`,
+  },
+  {
+    question: `Are male escorts in ${location} verified?`,
+    answer: `All our male escorts in ${location} are 100% verified, background-checked, and professionally trained. We ensure safety, hygiene, and quality for every client. Real photos provided before booking — no fake profiles.`,
+  },
+  {
+    question: `Can female clients hire male escorts in ${location}?`,
+    answer: `Absolutely! Our male escorts in ${location} are available for female clients, couples, and LGBTQ+ clients. We are inclusive, non-judgmental, and professional. Call +91 90389 76363 to book the perfect male companion in ${location}.`,
   },
 ];

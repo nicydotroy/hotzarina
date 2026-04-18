@@ -12,6 +12,7 @@ import {
   getServiceBySlug,
   defaultFAQs,
   defaultSpaFAQs,
+  defaultMaleEscortFAQs,
 } from "@/lib/data";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -19,8 +20,9 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateStaticParams() {
   const locationParams = locations.map((loc) => ({ slug: "escorts-in-" + loc.slug }));
   const spaParams = locations.map((loc) => ({ slug: "spa-center-in-" + loc.slug }));
+  const maleParams = locations.map((loc) => ({ slug: "male-escorts-in-" + loc.slug }));
   const serviceParams = services.map((svc) => ({ slug: svc.slug }));
-  return [...locationParams, ...spaParams, ...serviceParams];
+  return [...locationParams, ...spaParams, ...maleParams, ...serviceParams];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -68,6 +70,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `SPA Center in ${location.name} | Best Massage & Body Spa`,
         description: `Premium SPA center in ${location.name} — full body massage, couple spa, Nuru & happy ending. 24/7 available. Call +91 90389 76363.`,
         url: `https://hotzarina.in/spa-center-in-${location.slug}`,
+        siteName: "Hotzarina",
+        locale: "en_IN",
+        type: "website",
+      },
+    };
+  }
+
+  if (slug.startsWith("male-escorts-in-")) {
+    const locationSlug = slug.replace("male-escorts-in-", "");
+    const location = getLocationBySlug(locationSlug);
+    if (!location) return { title: "Not Found" };
+    return {
+      title: `Male Escorts in ${location.name} | Handsome Male Companions 24/7 | Hotzarina`,
+      description: `Premium male escorts in ${location.name}. Handsome, verified male companions for female clients, couples & LGBTQ+. Incall & outcall available 24/7. Call +91 90389 76363.`,
+      keywords: [
+        `male escorts in ${location.name.toLowerCase()}`,
+        `male escort ${location.name.toLowerCase()}`,
+        `gigolo in ${location.name.toLowerCase()}`,
+        `male companion ${location.name.toLowerCase()}`,
+        `male escort service ${location.name.toLowerCase()}`,
+        `male call boy ${location.name.toLowerCase()}`,
+        `male escort for female ${location.name.toLowerCase()}`,
+        `book male escort ${location.name.toLowerCase()}`,
+      ],
+      alternates: { canonical: `https://hotzarina.in/male-escorts-in-${location.slug}` },
+      openGraph: {
+        title: `Male Escorts in ${location.name} | Verified Male Companions`,
+        description: `Book premium male escorts in ${location.name}. 100% verified, discreet, available 24/7 for incall & outcall. Call +91 90389 76363.`,
+        url: `https://hotzarina.in/male-escorts-in-${location.slug}`,
         siteName: "Hotzarina",
         locale: "en_IN",
         type: "website",
@@ -768,6 +799,215 @@ export default async function SlugPage({ params }: Props) {
         </section>
 
         <FAQSection faqs={spaFaqs} location={location.name} />
+      </main>
+    );
+  }
+
+  // Male Escort page: male-escorts-in-[location]
+  if (slug.startsWith("male-escorts-in-")) {
+    const locationSlug = slug.replace("male-escorts-in-", "");
+    const location = getLocationBySlug(locationSlug);
+    if (!location) notFound();
+
+    const maleFaqs = defaultMaleEscortFAQs(location.name);
+    const nearbyLocations = locations.filter((l) => l.slug !== locationSlug).slice(0, 12);
+
+    const maleJsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": `https://hotzarina.in/male-escorts-in-${location.slug}#male`,
+          name: `Hotzarina Male Escorts ${location.name}`,
+          description: `Premium male escorts in ${location.name}. Verified, handsome male companions for female clients, couples & LGBTQ+. 100% discreet. Available 24/7.`,
+          url: `https://hotzarina.in/male-escorts-in-${location.slug}`,
+          telephone: "+91-90389-76363",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: location.city,
+            addressRegion: location.state,
+            postalCode: location.postalCode,
+            addressCountry: "IN",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: location.lat, longitude: location.lng },
+          areaServed: { "@type": "City", name: location.name },
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            opens: "00:00",
+            closes: "23:59",
+          },
+          priceRange: "₹₹₹",
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: String(location.reviewCount), bestRating: "5" },
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://hotzarina.in" },
+            { "@type": "ListItem", position: 2, name: "Male Escorts", item: "https://hotzarina.in/location" },
+            { "@type": "ListItem", position: 3, name: `Male Escorts in ${location.name}`, item: `https://hotzarina.in/male-escorts-in-${location.slug}` },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: maleFaqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        },
+      ],
+    };
+
+    return (
+      <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(maleJsonLd) }} />
+
+        {/* Hero */}
+        <section className="hero" style={{ background: `linear-gradient(rgba(20,0,60,0.82),rgba(80,0,80,0.80)), url('/images/escorts/escorts-in-${locationSlug}.webp') center/cover no-repeat` }}>
+          <div className="container">
+            <div className="hero-content">
+              <h1>Male Escorts in {location.name} — Verified Handsome Male Companions 24/7</h1>
+              <p>Welcome to {location.name}&apos;s #1 male escort service! Premium, verified, and handsome male companions available for female clients, couples &amp; LGBTQ+ clients. Incall &amp; outcall across {location.areas.slice(0, 3).join(', ')} and all {location.name} areas.</p>
+              <div className="hero-buttons">
+                <a href="tel:+919038976363" className="btn btn-primary">📞 Book Male Escort — +91 90389 76363</a>
+                <a href="https://wa.me/919038976363" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">💬 WhatsApp Now</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Instant Contact */}
+        <section className="contact-instant">
+          <div className="container">
+            <h2>Best Male Escorts in {location.name} — Book Now</h2>
+            <p>
+              Looking for a premium <strong>male escort in {location.name}</strong>? We provide handsome, verified male companions for <strong>female clients, couples &amp; LGBTQ+</strong> clients. Incall at our private location or outcall to your hotel/home across {location.areas.join(', ')}. Available 24/7 — completely discreet.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '1rem 0' }}>
+              {['Dinner Date', 'Hotel Visit', 'Home Visit', 'Travel Companion', 'Party Escort', 'Private Sessions'].map((tag) => (
+                <span key={tag} style={{ background: '#ede9fe', color: '#4c1d95', padding: '0.35rem 0.85rem', borderRadius: '20px', fontSize: '0.83rem', border: '1px solid #c4b5fd' }}>{tag}</span>
+              ))}
+            </div>
+            <div className="contact-buttons">
+              <a href="tel:+919038976363" className="btn btn-call">📞 Call Now</a>
+              <a href="https://wa.me/919038976363" className="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="about-section">
+          <div className="container">
+            <h2>Why Choose Our Male Escorts in {location.name}?</h2>
+            <div className="about-grid">
+              <div className="about-item">
+                <h3>100% Verified Male Escorts in {location.name}</h3>
+                <p>Every male escort in {location.name} is rigorously verified with real photos and background checks. No fake profiles — what you see is what you get. Handsome, well-groomed, and professionally trained companions.</p>
+              </div>
+              <div className="about-item">
+                <h3>Available for Female Clients, Couples &amp; LGBTQ+</h3>
+                <p>Our male escorts in {location.name} serve all clients — female clients seeking male companionship, couples looking for a third, and LGBTQ+ clients. We are inclusive, non-judgmental, and completely professional.</p>
+              </div>
+              <div className="about-item">
+                <h3>24/7 Incall &amp; Outcall — All {location.name} Areas</h3>
+                <p>Available round the clock. Visit our private incall location or book an outcall to your hotel or home in {location.areas.slice(0,3).join(', ')} and all areas of {location.name}. Confirmed within 30 minutes.</p>
+              </div>
+              <div className="about-item">
+                <h3>{location.reviewCount}+ Happy Clients in {location.name}</h3>
+                <p>Over {location.reviewCount} satisfied clients in {location.name} have rated our male escort service 4.9/5. We are the most trusted male escort agency in {location.name}, {location.state}.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content */}
+        <section className="content-section">
+          <div className="container">
+            <h2>Complete Guide to Male Escorts in {location.name}</h2>
+            <div className="content-wrapper">
+              <p>
+                Welcome to the most trusted <strong>male escort service in {location.name}</strong>. We provide premium, verified male companions for female clients, couples, and LGBTQ+ individuals across all areas of {location.name} — including {location.areas.join(', ')}. Available 24/7 for incall and outcall.
+              </p>
+              <h3>What Services Do Male Escorts in {location.name} Offer?</h3>
+              <p>
+                Our <strong>male escorts in {location.name}</strong> offer a range of professional companion services: dinner dates, party escort, travel companionship, hotel visits, home visits, and private sessions. All services are fully discreet, hygienic, and professional. Our male companions are trained to make you feel comfortable and special.
+              </p>
+              <h3>How to Book a Male Escort in {location.name}</h3>
+              <p>
+                Booking a <strong>male escort in {location.name}</strong> is simple and discreet. Call or WhatsApp <strong>+91 90389 76363</strong>. Tell us your preferred male companion type, service required, and your location in {location.name}. We confirm instantly and arrange a companion within 30–60 minutes.
+              </p>
+              <h3>Male Escort Rates in {location.name}</h3>
+              <p>
+                Our male escort rates in {location.name} are competitive and transparent — no hidden charges. We offer short 2-hour sessions, 4-hour bookings, overnight, and custom packages. Call <strong>+91 90389 76363</strong> for current pricing and availability.
+              </p>
+              <h3>Also Explore — Female Escorts in {location.name}</h3>
+              <p>
+                Looking for female escorts too? Visit our{' '}
+                <Link href={`/escorts-in-${location.slug}`} style={{ color: '#800080', fontWeight: 600 }}>
+                  escorts in {location.name}
+                </Link>{' '}
+                page — 100% verified call girls available 24/7 for incall &amp; outcall across all {location.name} areas.
+              </p>
+              <h3>Male Escorts in Nearby Locations</h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
+                {nearbyLocations.slice(0, 16).map((loc) => (
+                  <Link
+                    key={loc.slug}
+                    href={`/male-escorts-in-${loc.slug}`}
+                    style={{ background: '#ede9fe', color: '#4c1d95', padding: '0.4rem 0.9rem', borderRadius: '20px', fontSize: '0.84rem', textDecoration: 'none', border: '1px solid #c4b5fd' }}
+                  >
+                    Male Escorts in {loc.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Nearby Locations Grid */}
+        <section className="home-locations-section">
+          <div className="container">
+            <h2>Male Escorts in Nearby Locations</h2>
+            <p className="section-subtitle">Explore our male escort services across all nearby areas. Verified male companions everywhere near {location.name}.</p>
+            <div className="locations-grid">
+              {nearbyLocations.map((loc) => (
+                <div key={loc.slug} className="location-card">
+                  <Image
+                    src={"/images/escorts/escorts-in-" + loc.slug + ".webp"}
+                    alt={"Male Escorts in " + loc.name}
+                    width={350}
+                    height={350}
+                    loading="lazy"
+                  />
+                  <div className="location-info">
+                    <Link href={"/male-escorts-in-" + loc.slug} className="btn-location">Male Escorts in {loc.name}</Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="view-all-btn">
+              <Link href="/location" className="btn btn-primary">View All Locations</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Cross-links */}
+        <section className="contact-instant" style={{ background: '#1a0a2e' }}>
+          <div className="container" style={{ color: '#fff' }}>
+            <h2 style={{ color: '#fff' }}>Also Available in {location.name}</h2>
+            <p style={{ color: '#e2d4f0' }}>
+              Along with male escorts, we offer premium <strong>female escorts</strong> and <strong>SPA center services</strong> in {location.name}. 100% verified, available 24/7.
+            </p>
+            <div className="contact-buttons">
+              <Link href={`/escorts-in-${location.slug}`} className="btn btn-primary">Female Escorts in {location.name}</Link>
+              <Link href={`/spa-center-in-${location.slug}`} className="btn btn-secondary">SPA Center in {location.name}</Link>
+              <a href="tel:+919038976363" className="btn btn-call">📞 Call Now</a>
+            </div>
+          </div>
+        </section>
+
+        <FAQSection faqs={maleFaqs} location={location.name} />
       </main>
     );
   }
