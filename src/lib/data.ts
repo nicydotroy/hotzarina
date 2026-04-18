@@ -314,3 +314,53 @@ export const defaultFAQs = (location: string) => [
     answer: `Yes! We provide couple escorts for threesome experiences, group bookings for parties and events, and multiple escorts for bachelor parties. Contact us with your requirements for customized group packages.`,
   },
 ];
+
+export const spaServices = [
+  { name: 'Full Body Massage', icon: '💆', description: 'Complete stress-relief full body massage by expert therapists. 60 min / 90 min sessions.' },
+  { name: 'Swedish Massage', icon: '🌿', description: 'Classic Swedish long-stroke technique for deep relaxation and improved circulation.' },
+  { name: 'Deep Tissue Massage', icon: '💪', description: 'Targeted deep-muscle pressure to release chronic knots and tension.' },
+  { name: 'Aromatherapy Massage', icon: '🌸', description: 'Soothing massage with premium essential oils for holistic mind-body healing.' },
+  { name: 'Thai Massage', icon: '🏯', description: 'Traditional Thai stretching and pressure-point therapy for flexibility and energy.' },
+  { name: 'Hot Stone Massage', icon: '🪨', description: 'Volcanic basalt hot-stone therapy that melts away deep muscle tension.' },
+  { name: 'Couple Massage', icon: '💑', description: 'Romantic simultaneous massage for couples in a private suite — perfect for special occasions.' },
+  { name: 'Body-to-Body Massage', icon: '✨', description: 'Intimate body-to-body massage by trained professional therapists in total privacy.' },
+  { name: 'Nuru Massage', icon: '💫', description: 'Original Japanese Nuru gel full-body experience for ultimate sensory relaxation.' },
+  { name: 'Happy Ending Massage', icon: '🔥', description: 'Premium full body massage concluding with a satisfying happy ending by skilled therapists.' },
+  { name: 'Balinese Massage', icon: '🌺', description: 'Authentic Balinese technique combining acupressure, skin rolling, and aromatherapy.' },
+  { name: 'Foot Reflexology', icon: '🦶', description: 'Targeted foot pressure-point therapy providing full-body relief and stress reduction.' },
+];
+
+export const defaultSpaFAQs = (location: string) => [
+  {
+    question: `What massage services are available at the SPA center in ${location}?`,
+    answer: `Our ${location} SPA center offers full body massage, Swedish massage, deep tissue massage, aromatherapy, Thai massage, hot stone massage, couple massage, body-to-body massage, Nuru massage, happy ending massage, Balinese massage, and foot reflexology — all performed by certified professional therapists.`,
+  },
+  {
+    question: `What are the operating hours of the SPA center in ${location}?`,
+    answer: `Our SPA center in ${location} operates 24 hours a day, 7 days a week including weekends and public holidays. Same-day walk-in and advance bookings are both welcome. Call +91 90389 76363 to confirm slot availability.`,
+  },
+  {
+    question: `How much does a massage cost at the SPA center in ${location}?`,
+    answer: `Massage prices at our ${location} SPA start from ₹1,500 for standard sessions. Full body massage packages range ₹2,000–₹5,000. Premium services like body-to-body and Nuru massage are priced ₹3,000–₹8,000. Call us for the latest pricing and combo packages.`,
+  },
+  {
+    question: `Is the SPA center in ${location} safe, hygienic, and private?`,
+    answer: `Absolutely. Our ${location} SPA maintains 100% privacy and hygiene. All sessions are in private rooms. Fresh linen is used per client. Certified therapists follow strict sanitation protocols. Complete discretion is guaranteed for every booking.`,
+  },
+  {
+    question: `Do you offer home visit / hotel visit massage in ${location}?`,
+    answer: `Yes! We offer outcall massage service across all ${location} areas. Our therapists arrive at your home, hotel, or any private location with all necessary equipment. Available 24/7 — call +91 90389 76363 to book an outcall session.`,
+  },
+  {
+    question: `How do I book a SPA session in ${location}?`,
+    answer: `Booking is instant — call or WhatsApp +91 90389 76363. Share your preferred service, time, and address in ${location}. We confirm within minutes. A therapist will be ready within 30–60 minutes for outcall, or you can walk in at our ${location} center directly.`,
+  },
+  {
+    question: `Do you offer couple massage packages in ${location}?`,
+    answer: `Yes! Our ${location} SPA has special couple massage packages — both partners receive simultaneous massages by two therapists in a private suite. Duration: 60, 90, or 120 minutes. Ideal for anniversaries, honeymoons, and romantic getaways.`,
+  },
+  {
+    question: `Are the SPA therapists in ${location} certified and experienced?`,
+    answer: `All therapists at our ${location} SPA are professionally trained, certified, and carry a minimum of 2 years of hands-on experience. They regularly undergo advanced training in Swedish, Thai, deep tissue, and specialized massage techniques to deliver world-class service.`,
+  },
+];
